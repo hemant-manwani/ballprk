@@ -19,19 +19,23 @@ import styles from './styles'
 const Cart = ({
   items,
   classes,
-  fetching,
 }) => (
   <Grid container
     className={classes.container}
   >
-  <Typography variant='h5'>
-    Cart
-  </Typography>
+  <Grid item xs={12}>
+    <Typography variant='h5'>
+      Cart
+    </Typography>
+  </Grid>  
     {
       Object.keys(items).map(
         itemId => items[itemId].qty
           ? (
-            <Grid item xs={12} sm={6} key={itemId}>
+            <Grid
+              className={classes.cartItem}
+              item xs={12} md={6} key={itemId}
+            >
               <CartItem item={items[itemId]}/>
             </Grid>  
           ) : null
@@ -41,8 +45,9 @@ const Cart = ({
 );
 
 Cart.propTypes = {
-  records: PropTypes.array.isRequired,
-  fetching: PropTypes.bool.isRequired,
+  fetched: PropTypes.bool.isRequired,
+  items: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({

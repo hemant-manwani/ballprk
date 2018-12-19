@@ -11,7 +11,6 @@ import {
 import ProductListItem from './components/ProductListItem';
 
 const ProductList = ({
-  classes,
   records,
   fetching,
 }) => (
@@ -19,7 +18,7 @@ const ProductList = ({
     {
       records.map(
         record => (
-          <Grid item xs={6} sm={4} md={2} key={record.id}>
+          <Grid item xs={6} sm={4} key={record.id}>
             <ProductListItem item={record}/>
           </Grid>  
         )

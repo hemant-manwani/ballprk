@@ -2,7 +2,7 @@ import { fetchProducts } from './product'
 import { fetchCart, addItemToCart, removeItemFromCart } from './cart'
 
 const call = (service, ...params) => new Promise(
-  (resolve, reject) => setTimeout(() => resolve(service(...params)), 1500)
+  (resolve, reject) => setTimeout(() => resolve(service(...params)), 800)
 )
 
 export const fetchProductsApi = async () => {

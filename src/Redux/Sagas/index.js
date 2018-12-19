@@ -4,8 +4,6 @@ import cart from './cart';
 import product from './product';
 
 export default function* rootSaga() {
-  yield [
-    fork(cart),
-    fork(product),
-  ];
+  yield fork(cart);
+  yield fork(product);
 }

@@ -16,11 +16,12 @@ const styles = {
   item: {
     marginTop: 20,
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'center'
   },
   details: {
     fontSize: 12,
     fontWeight: 600,
+    paddingRight: 15,
   },
   name: {
     fontSize: 12,
@@ -29,6 +30,9 @@ const styles = {
   price: {
     fontSize: 12,
     fontWeight: 600,
+  },
+  btnWrapper: {
+    paddingLeft: 15,
   },
   buyBtn: {
     padding: 0,

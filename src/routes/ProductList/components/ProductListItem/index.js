@@ -19,35 +19,43 @@ const ProductListItem = ({
 }) => (
   <div className={classes.root}>
     <img alt={item.name} src={item.image} className={classes.image}/>
+    
     <div className={classes.item}>
+      
       <div className={classes.details}>
+        
         <Typography className={classes.price}>
           {`${item.currency} ${item.price}`}
         </Typography>
+        
         <Typography className={classes.name}>
           {item.name}
         </Typography>
       </div>
-      <Button
-        size='small'
-        color='primary'
-        variant='contained'
-        onClick={() => addItemToCart({ item })}
-        classes={
-          {
-            root: classes.buyBtn
+      
+      <div className={classes.btnWrapper}>
+        <Button
+          size='small'
+          color='primary'
+          variant='contained'
+          onClick={() => addItemToCart({ item })}
+          classes={
+            {
+              root: classes.buyBtn
+            }
           }
-        }
-      >
-        Buy
-      </Button>
+        >
+          Buy
+        </Button>
+      </div>  
     </div>
   </div>
 );
 
 ProductListItem.propTypes = {
   item: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  addItemToCart: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {

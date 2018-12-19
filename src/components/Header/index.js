@@ -17,7 +17,6 @@ import { fetchCart } from 'Redux/Actions/CartActions'
 import styles from './styles';
 
 const Header = ({
-  title,
   classes,
   totalItems
 }) => (
@@ -71,7 +70,6 @@ const mapDispatchToProps = {
 }
 
 Header.propTypes = {
-  title: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
 };
 
