@@ -3,10 +3,25 @@ import {
   call,
   takeLatest
 } from 'redux-saga/effects';
-import { addItemToCartApi, removeItemFromCartApi } from 'Service/Api';
+import {
+  fetchCartApi,
+  addItemToCartApi,
+  removeItemFromCartApi
+} from 'Service/Api';
 
 import * as CartTypes from 'Redux/Types/CartTypes';
 import * as CartActions from 'Redux/Actions/CartActions';
+
+function* fetchCart({ payload }) {
+  try {
+    const response = yield call(
+      fetchCartApi, payload
+    );
+    yield put(CartActions.fetchCartSucceeded(response));
+  } catch (err) {
+    yield put(CartActions.fetchCartFailed(err));
+  }
+}
 
 function* addItemToCart({ payload }) {
   try {
@@ -31,6 +46,7 @@ function* removeItemFromCart({ payload }) {
 }
 
 export default function* cartSaga() {
+  yield takeLatest(CartTypes.FETCH_CART, fetchCart);
   yield takeLatest(CartTypes.ADD_ITEM_TO_CART, addItemToCart);
   yield takeLatest(CartTypes.REMOVE_ITEM_FROM_CART, removeItemFromCart);
 }

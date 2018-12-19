@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
-import { compose, lifecycle, withHandlers } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 
 import {
   fetchProducts,

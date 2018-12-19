@@ -15,12 +15,12 @@ export const fetchCartApi = async () => {
   return response;
 }
 
-export const addItemToCartApi = async (item) => {
+export const addItemToCartApi = async ({ item }) => {
   const response = await call(addItemToCart, item);
   return response;
 }
 
-export const removeItemFromCartApi = async (itemId) => {
-  const response = await call(removeItemFromCart, itemId);
+export const removeItemFromCartApi = async ({ item, remove }) => {
+  const response = await call(removeItemFromCart, item, remove);
   return response;
 }

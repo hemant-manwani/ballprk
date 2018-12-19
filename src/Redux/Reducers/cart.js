@@ -13,7 +13,8 @@ import {
 } from 'Redux/Types/CartTypes';
 
 const INITIAL_STATE = {
-  items: [],
+  items: {},
+  fetched: false,
   fetching: false,
   addingToCart: false,
   removingFromCart: false,
@@ -25,17 +26,20 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         fetching: true,
+        fetched: false,
       }
     }
     case FETCH_CART_FAILED: {
       return {
         ...state,
+        fetched: false,
         fetching: false,
       }
     }
     case FETCH_CART_SUCCEEDED: {
       return {
         ...state,
+        fetched: true,
         fetching: false,
         items: payload
       }
@@ -56,7 +60,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         addingToCart: false,
-        items: [...state.items, payload]
+        items: { ...state.items, [payload.id]: payload }
       }
     }
     case REMOVE_ITEM_FROM_CART: {
@@ -75,7 +79,10 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         removingFromCart: true,
-        items: state.items.filter(item => item.id !== payload)
+        items: {
+          ...state.items,
+          [payload.id]: payload
+        }
       }
     }
   

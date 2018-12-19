@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 
 import Header from 'components/Header'
+import Loader from 'components/Loader'
 
 import styles from './styles'
 
@@ -15,7 +16,8 @@ const CoreLayout = ({
     <Header />
     <main className={classes.main}>
       <Route component={Component} {...props} />
-    </main>  
+    </main>
+    <Loader />
   </Fragment>
 )
 

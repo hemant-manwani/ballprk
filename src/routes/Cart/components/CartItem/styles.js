@@ -2,38 +2,53 @@ import { COLORS } from 'Constants/theme'
 
 const styles = {
   root: {
-    padding: 20,
+    padding: 15,
+    marginTop: 15,
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
+    position: 'relative',
+  },
+  imageContainer: {
+    textAlign: 'center'
   },
   image: {
     maxHeight: 180,
     maxWidth: '100%',
-    borderRadius: 25,
     objectFit: 'contain'
   },
-  item: {
-    marginTop: 20,
+  cartDetails: {
+    padding: 20,
+    width: '100%',
     display: 'flex',
-    justifyContent: 'space-between'
+    flexDirection: 'column',
   },
-  details: {
-    fontSize: 12,
-    fontWeight: 600,
+  removeItem: {
+    top: 10,
+    right: 10,
+    opacity: 0.5,
+    position: 'absolute',
   },
   name: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 600,
   },
   price: {
-    fontSize: 12,
+    fontSize: 15,
+  },
+  qty: {
+    padding: 10,
+    fontSize: 16,
+    display: 'flex',
     fontWeight: 600,
   },
-  buyBtn: {
+  buttons: {
+    marginTop: 10,
+    display: 'flex',
+    alignItems: 'center',
+  },
+  actionBtn: {
     padding: 0,
     height: 15,
-    fontSize: 12,
+    fontSize: 25,
     minWidth: 50,
     minHeight: 30,
     fontWeight: 600,

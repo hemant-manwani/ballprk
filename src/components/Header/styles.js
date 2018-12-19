@@ -1,3 +1,5 @@
+import { COLORS } from 'Constants/theme'
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -5,6 +7,9 @@ const styles = {
   grow: {
     flexGrow: 1,
   },
+  navLink: {
+    color: COLORS.WHITE
+  }
 };
 
 export default styles;

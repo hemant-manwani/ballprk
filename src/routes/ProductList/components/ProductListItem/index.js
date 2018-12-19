@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import { compose, lifecycle, withHandlers } from 'recompose';
 
 import styles from './styles'
 
@@ -19,7 +18,7 @@ const ProductListItem = ({
   addItemToCart
 }) => (
   <div className={classes.root}>
-    <img src={item.image} className={classes.image}/>
+    <img alt={item.name} src={item.image} className={classes.image}/>
     <div className={classes.item}>
       <div className={classes.details}>
         <Typography className={classes.price}>
@@ -33,7 +32,7 @@ const ProductListItem = ({
         size='small'
         color='primary'
         variant='contained'
-        onClick={() => addItemToCart(item)}
+        onClick={() => addItemToCart({ item })}
         classes={
           {
             root: classes.buyBtn
